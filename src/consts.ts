@@ -5,18 +5,18 @@ import RSS from "@/assets/icons/rss.svg"
 import Twitter from "@/assets/icons/twitter.svg"
 
 export const SITE = {
-  title: "astro-erudite",
-  description: "An opinionated, unstyled blogging template built with Astro.",
-  locale: "en-US",
+  title: "Arsipin",
+  description: "",
+  locale: "id-ID",
   dir: "ltr",
   defaultPageImage: "/static/opengraph-image.png",
   defaultPostImage: "/static/1200x630.png",
 } as const
 
 export const NAVIGATION = [
-  { href: "/blog", label: "Blog" },
-  { href: "/projects", label: "Projects" },
-  { href: "/authors", label: "Authors" },
+  { href: "/blog", label: "Esai" },
+  { href: "/ulasan", label: "Ulasan" },
+  { href: "/redaksi", label: "Redaksi" },
 ]
 
 export const SOCIALS: { href: string; label: string; icon: SvgComponent }[] = [

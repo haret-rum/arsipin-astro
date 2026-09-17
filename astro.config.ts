@@ -12,7 +12,8 @@ import { headingNamespace } from "./src/lib/heading-namespace"
 import { headingAnchors } from "./src/lib/heading-anchors"
 
 export default defineConfig({
-  site: "https://astro-erudite.vercel.app",
+  site: "https://haret-rum.github.io",
+  base: "/arsipin-astro",
   compressHTML: true,
   prefetch: { prefetchAll: true },
   integrations: [

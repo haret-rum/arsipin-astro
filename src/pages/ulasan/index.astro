@@ -1,0 +1,23 @@
+---
+import BlogCard from "@/components/BlogCard.astro"
+import MetaPage from "@/components/MetaPage.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getCollection } from "astro:content"
+
+const posts = await getCollection("ulasan")
+---
+
+<Layout crumbs={[{ label: "Ulasan", href: "/ulasan" }]}>
+  <MetaPage slot="head" title="Ulasan" description="Kumpulan ulasan." />
+  <ul>
+    {posts.map((post) => <BlogCard post={post} basePath="/ulasan" />)}
+  </ul>
+</Layout>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import Logo from "@/assets/logo.svg"
+import LogoDark from "@/assets/logo-dark.svg"
 import ThemeToggle from "@/components/ThemeToggle.astro"
 import { NAVIGATION, SITE } from "@/consts"
 import { normalizePath } from "@/lib/utils"
@@ -15,8 +16,9 @@ const section = NAVIGATION.find(
 
 <aside data-bar>
   <sidebar-inner>
-    <a href="/" aria-label={SITE.title}>
-      <Logo />
+    <a href="/" aria-label={SITE.title} class="brand">
+      <Logo class="logo logo-light" />
+      <LogoDark class="logo logo-dark" />
     </a>
     <nav>
       <ul>
@@ -99,15 +101,41 @@ const section = NAVIGATION.find(
       color: var(--foreground);
       text-decoration-line: none;
 
-      svg {
-        inline-size: 1.125rem;
-        block-size: 1.125rem;
+      .logo {
+        inline-size: clamp(7rem, 9vw, 9.5rem);
+        block-size: auto;
         flex-shrink: 0;
+      }
+
+      .logo-dark {
+        display: none;
       }
 
       @media (width < 26rem) {
         span {
           display: none;
+        }
+      }
+    }
+
+    :root[data-theme="dark"] {
+      .brand .logo-light {
+        display: none;
+      }
+
+      .brand .logo-dark {
+        display: block;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        .brand .logo-light {
+          display: none;
+        }
+
+        .brand .logo-dark {
+          display: block;
         }
       }
     }

@@ -14,7 +14,7 @@ export const SITE = {
 } as const
 
 export const NAVIGATION = [
-  { href: "/blog", label: "Esai" },
+  { href: "/esai", label: "Esai" },
   { href: "/ulasan", label: "Ulasan" },
   { href: "/redaksi", label: "Redaksi" },
 ]

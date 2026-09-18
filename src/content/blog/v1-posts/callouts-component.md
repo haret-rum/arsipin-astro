@@ -2,6 +2,7 @@
 title: 'v1.5.0: “A Callout Component for Nerds”'
 description: 'A quick update introduces our first content-based component: the callout!'
 date: 2025-04-24
+category: esai
 order: 3
 tags:
   - v1.5.0

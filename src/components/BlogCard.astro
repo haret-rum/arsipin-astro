@@ -3,20 +3,24 @@ import { formatDate } from "@/lib/utils"
 import { Image } from "astro:assets"
 import { getEntries, type CollectionEntry } from "astro:content"
 
-type Props = { post: CollectionEntry<"blog"> }
+type Props = {
+  post: CollectionEntry<"blog" | "esai" | "ulasan" | "redaksi">
+  basePath?: string
+}
 
-const { post } = Astro.props
+const { post, basePath = "/blog" } = Astro.props
 const authors = await getEntries(post.data.authors)
+const href = `${basePath}/${post.id}`
 ---
 
 <li>
   {post.data.image && (
-      <a href={`/blog/${post.id}`} tabindex="-1" aria-hidden="true">
+      <a href={href} tabindex="-1" aria-hidden="true">
         <Image src={post.data.image} alt="" width={640} height={336} />
       </a>
     )}
   <entry-info>
-    <a href={`/blog/${post.id}`}>{post.data.title}</a>
+    <a href={href}>{post.data.title}</a>
     <entry-meta>
       {authors.length > 0 && (
           <entry-authors>

@@ -1,13 +1,19 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content"
 import MetaPage from "@/components/MetaPage.astro"
 import Layout from "@/layouts/Layout.astro"
 
-const posts = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+  .filter((post: CollectionEntry<"blog">) => !post.data.draft)
+  .sort(
+    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+      new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  )
 
-const featured = posts.filter((post) => post.data.featured).slice(0, 3)
-const recent = posts.slice(0, 5)
+const featured: CollectionEntry<"blog">[] = posts
+  .filter((post: CollectionEntry<"blog">) => post.data.featured)
+  .slice(0, 3)
+const recent: CollectionEntry<"blog">[] = posts.slice(0, 5)
 ---
 
 <Layout>

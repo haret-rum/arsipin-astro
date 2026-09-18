@@ -113,31 +113,25 @@ const section = NAVIGATION.find(
         display: none;
       }
 
-      @media (width < 26rem) {
-        span {
-          display: none;
-        }
-      }
-    }
-
-    :global(:root[data-theme="dark"]) {
-      .brand .logo-light {
-        display: none;
-      }
-
-      .brand .logo-dark {
-        display: block;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :global(:root:not([data-theme])) {
+      :global(:root[data-theme="dark"]) {
         .brand .logo-light {
           display: none;
         }
 
         .brand .logo-dark {
           display: block;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :global(:root:not([data-theme])) {
+          .brand .logo-light {
+            display: none;
+          }
+
+          .brand .logo-dark {
+            display: block;
+          }
         }
       }
     }
@@ -149,7 +143,6 @@ const section = NAVIGATION.find(
       justify-content: space-between;
     }
   }
-
   nav ul {
     display: flex;
     flex-direction: column;

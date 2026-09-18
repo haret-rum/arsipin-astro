@@ -1,6 +1,13 @@
 ---
 import MetaPage from "@/components/MetaPage.astro"
 import Layout from "@/layouts/Layout.astro"
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+
+const featured = posts.filter((post) => post.data.featured).slice(0, 3)
+const recent = posts.slice(0, 5)
 ---
 
 <Layout>
@@ -50,6 +57,19 @@ import Layout from "@/layouts/Layout.astro"
       </p>
     </prose-content>
   </dictionary-entry>
+  <section>
+    <h2>Featured Post</h2>
+    {featured.map(post => (
+      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+    ))}
+  </section>
+
+  <section>
+    <h2>Recent Post</h2>
+    {recent.map(post => (
+      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+    ))}
+  </section>
 </Layout>
 
 <style>

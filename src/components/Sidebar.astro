@@ -120,7 +120,7 @@ const section = NAVIGATION.find(
       }
     }
 
-    :root[data-theme="dark"] {
+    :global(:root[data-theme="dark"]) {
       .brand .logo-light {
         display: none;
       }
@@ -131,7 +131,7 @@ const section = NAVIGATION.find(
     }
 
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme]) {
+      :global(:root:not([data-theme])) {
         .brand .logo-light {
           display: none;
         }

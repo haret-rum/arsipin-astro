@@ -1,6 +1,6 @@
 ---
-import Logo from "@/assets/logo.svg"
-import LogoDark from "@/assets/logo-dark.svg"
+import Logo from "@/assets/logo.png"
+import LogoDark from "@/assets/logo-dark.png"
 import ThemeToggle from "@/components/ThemeToggle.astro"
 import { NAVIGATION, SITE } from "@/consts"
 import { normalizePath } from "@/lib/utils"
@@ -17,8 +17,8 @@ const section = NAVIGATION.find(
 <aside data-bar>
   <sidebar-inner>
     <a href="/" aria-label={SITE.title} class="brand">
-      <span class="logo logo-light"><Logo /></span>
-      <span class="logo logo-dark"><LogoDark /></span>
+      <img src={Logo.src} alt={SITE.title} class="logo logo-light" />
+      <img src={LogoDark.src} alt={SITE.title} class="logo logo-dark" />
     </a>
     <nav>
       <ul>
@@ -102,16 +102,11 @@ const section = NAVIGATION.find(
       text-decoration-line: none;
 
       .logo {
-        display: inline-flex;
-        inline-size: clamp(4rem, 5vw, 5.5rem);
+        display: block;
+        inline-size: clamp(6rem, 7vw, 8rem);
         block-size: auto;
+        object-fit: contain;
         flex-shrink: 0;
-
-        svg {
-          display: block;
-          inline-size: 100%;
-          block-size: auto;
-        }
       }
 
       .logo-dark {
@@ -131,7 +126,7 @@ const section = NAVIGATION.find(
       }
 
       .brand .logo-dark {
-        display: inline-flex;
+        display: block;
       }
     }
 
@@ -142,7 +137,7 @@ const section = NAVIGATION.find(
         }
 
         .brand .logo-dark {
-          display: inline-flex;
+          display: block;
         }
       }
     }

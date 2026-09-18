@@ -17,52 +17,23 @@ const authors = defineCollection({
   }),
 })
 
-const postSchema = ({
-  image,
-}: {
-  image: (arg?: unknown) => z.ZodTypeAny
-}) =>
-  z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    order: z.number().optional(),
-    tags: z.array(z.string()).optional(),
-    authors: z.array(reference("authors")),
-    image: image().optional(),
-    draft: z.boolean().optional(),
-  })
-
 const blog = defineCollection({
   loader: glob({
     pattern: "**/[^_]*.md",
     base: "./src/content/blog",
   }),
-  schema: postSchema,
-})
-
-const esai = defineCollection({
-  loader: glob({
-    pattern: "**/[^_]*.md",
-    base: "./src/content/esai",
-  }),
-  schema: postSchema,
-})
-
-const ulasan = defineCollection({
-  loader: glob({
-    pattern: "**/[^_]*.md",
-    base: "./src/content/ulasan",
-  }),
-  schema: postSchema,
-})
-
-const redaksi = defineCollection({
-  loader: glob({
-    pattern: "**/[^_]*.md",
-    base: "./src/content/redaksi",
-  }),
-  schema: postSchema,
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      date: z.coerce.date(),
+      order: z.number().optional(),
+      tags: z.array(z.string()).optional(),
+      category: z.enum(["esai", "ulasan", "redaksi"]).optional(),
+      authors: z.array(reference("authors")),
+      image: image().optional(),
+      draft: z.boolean().optional(),
+    }),
 })
 
 const projects = defineCollection({
@@ -82,4 +53,4 @@ const projects = defineCollection({
     }),
 })
 
-export const collections = { blog, esai, ulasan, redaksi, authors, projects }
+export const collections = { blog, authors, projects }

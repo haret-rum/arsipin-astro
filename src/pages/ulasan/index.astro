@@ -4,13 +4,13 @@ import MetaPage from "@/components/MetaPage.astro"
 import Layout from "@/layouts/Layout.astro"
 import { getCollection } from "astro:content"
 
-const posts = await getCollection("ulasan")
+const posts = await getCollection("blog", ({ data }) => data.category === "ulasan")
 ---
 
 <Layout crumbs={[{ label: "Ulasan", href: "/ulasan" }]}>
   <MetaPage slot="head" title="Ulasan" description="Kumpulan ulasan." />
   <ul>
-    {posts.map((post) => <BlogCard post={post} basePath="/ulasan" />)}
+    {posts.map((post) => <BlogCard post={post} basePath="/blog" />)}
   </ul>
 </Layout>
 

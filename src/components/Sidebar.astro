@@ -17,8 +17,8 @@ const section = NAVIGATION.find(
 <aside data-bar>
   <sidebar-inner>
     <a href="/" aria-label={SITE.title} class="brand">
-      <Logo class="logo logo-light" />
-      <LogoDark class="logo logo-dark" />
+      <span class="logo logo-light"><Logo /></span>
+      <span class="logo logo-dark"><LogoDark /></span>
     </a>
     <nav>
       <ul>
@@ -102,9 +102,16 @@ const section = NAVIGATION.find(
       text-decoration-line: none;
 
       .logo {
-        inline-size: clamp(7rem, 9vw, 9.5rem);
+        display: inline-flex;
+        inline-size: clamp(4rem, 5vw, 5.5rem);
         block-size: auto;
         flex-shrink: 0;
+
+        svg {
+          display: block;
+          inline-size: 100%;
+          block-size: auto;
+        }
       }
 
       .logo-dark {
@@ -124,7 +131,7 @@ const section = NAVIGATION.find(
       }
 
       .brand .logo-dark {
-        display: block;
+        display: inline-flex;
       }
     }
 
@@ -135,7 +142,7 @@ const section = NAVIGATION.find(
         }
 
         .brand .logo-dark {
-          display: block;
+          display: inline-flex;
         }
       }
     }

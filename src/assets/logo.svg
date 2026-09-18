@@ -1,10 +1,11 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_741_1317)">
-<path d="M512 366H72V438H512V512H0V292H440V220H0V0H512V74H72V146H512V366Z" fill="currentColor"/>
-</g>
-<defs>
-<clipPath id="clip0_741_1317">
-<rect width="512" height="512" fill="white"/>
-</clipPath>
-</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1123 289" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-78.5539,-255.895)">
+        <g transform="matrix(0.933468,0,0,0.933468,38.4032,15.6197)">
+            <g transform="matrix(322.241,0,0,322.241,1248.52,505.249)">
+            </g>
+            <text x="67.18px" y="505.249px" style="font-family:'ParcloSerifTrial-BlackItalic', 'Parclo Serif Trial';font-weight:900;font-style:italic;font-size:322.241px;">A<tspan x="279.537px 446.136px " y="505.249px 505.249px ">rs</tspan>ipin</text>
+        </g>
+    </g>
 </svg>
